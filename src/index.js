@@ -5,6 +5,10 @@ import handlebars from "express-handlebars";
 // init express instance
 const app = express();
 
+// Add static middleware 
+
+app.use(express.static('./src/public'));
+
 // Add and config view engine
 app.engine('hbs', handlebars.engine({
     extname: 'hbs',
