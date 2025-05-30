@@ -1,0 +1,19 @@
+{
+  "name": "softuni-movie-magic",
+  "version": "1.0.0",
+  "description": "Softuni-Node.js-Movie-Magic",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cvetomirpetrov077/Softuni-Movie-Magic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
