@@ -7,7 +7,6 @@
     "start": "node src/index.js",
     "dev": "node --watch src/index.js"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/cvetomirpetrov077/Softuni-Movie-Magic.git"
@@ -15,5 +14,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
