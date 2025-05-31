@@ -1,3 +1,5 @@
+import { create } from "express-handlebars";
+
 const movies = [
     {
       id: 1,
@@ -46,5 +48,9 @@ const movies = [
 export default{
     getAll() {
         return movies
+    },
+    create(movieData){
+      movies.push(movieData);
+      return movieData;
     }
 } 
