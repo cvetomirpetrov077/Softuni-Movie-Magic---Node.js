@@ -24,7 +24,7 @@ const movies = [
       title: "The Grand Budapest Hotel",
       genre: "Comedy, Adventure",
       description: "A legendary concierge and his trusted lobby boy become involved in the theft of a priceless painting and a family feud.",
-      imageUrl: "https://image.tmdb.org/t/p/w500/nX5XotM9yprCKarRH4fzOq1VM1J.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/en/a/a6/The_Grand_Budapest_Hotel_Poster.jpg",
       year: 2014,
       rating: 8.1,
       category: "movie"
@@ -34,7 +34,7 @@ const movies = [
       title: "The Martian",
       genre: "Adventure, Sci-Fi, Drama",
       description: "An astronaut stranded on Mars must rely on his ingenuity to survive until a rescue mission can reach him.",
-      imageUrl: "https://image.tmdb.org/t/p/w500/5aGhaIHYuQbqlHWvWYqMCnj40y2.jpg",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/en/c/cd/The_Martian_film_poster.jpg",
       year: 2015,
       rating: 8.0,
       category: "movie"
