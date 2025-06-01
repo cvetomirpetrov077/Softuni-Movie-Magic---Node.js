@@ -26,7 +26,7 @@ const movies = [
       title: "The Grand Budapest Hotel",
       genre: "Comedy, Adventure",
       description: "A legendary concierge and his trusted lobby boy become involved in the theft of a priceless painting and a family feud.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/en/a/a6/The_Grand_Budapest_Hotel_Poster.jpg",
+      imageUrl: "https://m.media-amazon.com/images/I/71JiBJhmqFL._AC_UF894,1000_QL80_.jpg",
       year: 2014,
       rating: 8.1,
       category: "movie"
