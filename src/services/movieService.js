@@ -2,7 +2,7 @@ import { create } from "express-handlebars";
 
 const movies = [
     {
-      id: 1,
+      id: "1",
       title: "Avengers: Infinity War",
       genre: "Action, Sci-Fi",
       description: "The Avengers must stop Thanos before he collects all the Infinity Stones and wipes out half of all life.",
@@ -12,7 +12,7 @@ const movies = [
       category: "movie"
     },
     {
-      id: 2,
+      id: "2",
       title: "Avengers: Endgame",
       genre: "Action, Sci-Fi",
       description: "After the devastating events of Infinity War, the Avengers assemble once more to undo Thanos' destruction.",
@@ -22,7 +22,7 @@ const movies = [
       category: "movie"
     },
     {
-      id: 3,
+      id: "3",
       title: "The Grand Budapest Hotel",
       genre: "Comedy, Adventure",
       description: "A legendary concierge and his trusted lobby boy become involved in the theft of a priceless painting and a family feud.",
@@ -32,7 +32,7 @@ const movies = [
       category: "movie"
     },
     {
-      id: 4,
+      id: "4",
       title: "The Martian",
       genre: "Adventure, Sci-Fi, Drama",
       description: "An astronaut stranded on Mars must rely on his ingenuity to survive until a rescue mission can reach him.",
@@ -52,5 +52,9 @@ export default{
     create(movieData){
       movies.push(movieData);
       return movieData;
+    },
+    getOne(movieId){
+      const movie =  movies.find(movie => movie.id === movieId)
+      return movie;
     }
 } 
