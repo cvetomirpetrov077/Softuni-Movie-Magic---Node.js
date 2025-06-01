@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "title": "Avengers: Infinity War",
+        "genre": "Action, Sci-Fi",
+        "description": "The Avengers must stop Thanos before he collects all the Infinity Stones and wipes out half of all life.",
+        "imageUrl": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+        "year": 2018,
+        "rating": 8.4,
+        "category": "movie"
+    },
+    {
+        "id": "2",
+        "title": "Avengers: Endgame",
+        "genre": "Action, Sci-Fi",
+        "description": "After the devastating events of Infinity War, the Avengers assemble once more to undo Thanos' destruction.",
+        "imageUrl": "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+        "year": 2019,
+        "rating": 8.4,
+        "category": "movie"
+    },
+    {
+        "id": "3",
+        "title": "The Grand Budapest Hotel",
+        "genre": "Comedy, Adventure",
+        "description": "A legendary concierge and his trusted lobby boy become involved in the theft of a priceless painting and a family feud.",
+        "imageUrl": "https://m.media-amazon.com/images/I/71JiBJhmqFL._AC_UF894,1000_QL80_.jpg",
+        "year": 2014,
+        "rating": 8.1,
+        "category": "movie"
+    },
+    {
+        "id": "4",
+        "title": "The Martian",
+        "genre": "Adventure, Sci-Fi, Drama",
+        "description": "An astronaut stranded on Mars must rely on his ingenuity to survive until a rescue mission can reach him.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cd/The_Martian_film_poster.jpg",
+        "year": 2015,
+        "rating": 8,
+        "category": "movie"
+    },
+    { 
+        "id": "5",
+        "title": "Knives Out",
+        "genre": "Mystery, Comedy",
+        "description": "A renowned detective investigates the death of a wealthy crime novelist, unraveling a web of secrets within the eccentric family.",
+        "imageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQyRkbeA0Oq6t-6JSo_34gex-gHQxf3-HZ1nFy0hoREsLEBag7Pxk0zkw6GlewIIF_oNpLD",
+        "year": 2019,
+        "rating": 7.9,
+        "category": "movie"
+    },
+    {
+        "id": "6",
+        "title": "Interstellar",
+        "genre": "Sci-Fi, Drama",
+        "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSngBJ0B7UDrLUkDlp6DCQLsEYuWR-DiHwbnxFFCniB3HiP3f3NZmR1-lKSC34ge6YXu4LX",
+        "year": 2014,
+        "rating": 8.6,
+        "category": "movie"
+  }
+]

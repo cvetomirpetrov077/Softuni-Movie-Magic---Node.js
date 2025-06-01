@@ -1,5 +1,4 @@
 
-import { v4 as uuid } from "uuid";
 import Movie, { movies } from "../models/Movie.js";
     
 export default{
@@ -29,14 +28,9 @@ export default{
       return result;
     },
     create(movieData){
-      // Set unique id when creating a movie
-      movieData.id = uuid();
-      movieData.rating = Number(movieData.rating); // идва от инпута като стринг, конвертирай го
-      // Push the movie into the array -- add it to movies
-      movies.push(movieData);
-
+      const movie = new Movie(movieData);
       //Return the created movie
-      return movieData;
+      return movie.save();
     },
     getOne(movieId){
       const movie =  movies.find(movie => movie.id === movieId)

@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
+import {v4 as uuid} from 'uuid';
 
-const moviesJSON = await fs.readFile('./database.json');
+const moviesJSON = await fs.readFile('./src/database.json');
 export const movies = JSON.parse(moviesJSON);
 
 console.log(movies);
@@ -12,9 +13,13 @@ export default class Movie {
     }
 
    async save(){
+
+       this.data.id = uuid();
+       this.data.rating = Number(this.data.rating);
+       
        movies.push(this.data);
 
-       await fs.writeFile('../database.json', JSON.stringify(movies, null, 4)); 
+       await fs.writeFile('./src/database.json', JSON.stringify(movies, null, 4)); 
 
        return this.data;
    }
