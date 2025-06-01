@@ -75,6 +75,7 @@ export default{
     create(movieData){
       // Set unique id when creating a movie
       movieData.id = uuid();
+      movieData.rating = Number(movieData.rating); // идва от инпута като стринг, конвертирай го
       // Push the movie into the array -- add it to movies
       movies.push(movieData);
 
