@@ -49,13 +49,28 @@ const movies = [
 export default{
     getAll( filter = {}) {
 
-      let result = movies.slice();
+      let result = movies.slice(); // shallow copy to preserve original
 
-      if(filter.search){
-        result = result.filter(movie => movie.title.toLocaleLowerCase().includes(filter.search.toLocaleLowerCase()));
+      if (filter.search) {
+        const searchTerm = filter.search.toLowerCase();
+        result = result.filter(movie =>
+          movie.title.toLowerCase().includes(searchTerm)
+        );
       }
-      
-        return result;
+    
+      if (filter.genre) {
+        result = result.filter(movie =>
+          movie.genre.toLowerCase() === filter.genre.toLowerCase()
+        );
+      }
+    
+      if (filter.year) {
+        result = result.filter(movie =>
+          movie.year === Number(filter.year)
+        );
+      }
+    
+      return result;
     },
     create(movieData){
       // Set unique id when creating a movie
