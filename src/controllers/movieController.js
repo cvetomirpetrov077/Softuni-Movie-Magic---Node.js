@@ -16,8 +16,16 @@ movieController.post('/create', (req, res) => {
 
     // Redirect to home page
     res.redirect('/')
+})
 
+movieController.get('/search', (req, res) => {
 
+    // Get querystring
+    const filter = req.query;
+
+    // get all movies
+    const movies = movieService.getAll(filter);
+    res.render('search', { movies});
 })
 
 movieController.get('/:movieId/details', (req, res) => {
@@ -29,18 +37,8 @@ movieController.get('/:movieId/details', (req, res) => {
     // console.log(movie);
 
     res.render('details', { movie } );
-
 });
 
-movieController.get('/search', (req, res) => {
-
-    // Get querystring
-    const filter = req.query;
-
-    // get all movies
-    const movies = movieService.getAll(filter);
-    res.render('search', { movies});
-})
 
 
 export default movieController;
