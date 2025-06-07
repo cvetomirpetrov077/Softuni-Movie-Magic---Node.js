@@ -1,26 +1,43 @@
-import fs from 'node:fs/promises';
-import {v4 as uuid} from 'uuid';
+import mongoose, { model, Schema } from "mongoose";
 
-const moviesJSON = await fs.readFile('./src/database.json');
-export const movies = JSON.parse(moviesJSON);
+const movieSchema = new Schema({
+    title: String,
+    category: String,
+    genre: String,
+    director: String,
+    year: Number,
+    imageUrl: String,
+    rating: Number,
+    description: String
+});
 
-console.log(movies);
+const Movie = model('Movie', movieSchema);
 
-export default class Movie {
+export default Movie;
 
-    constructor(data){
-        this.data = data;
-    }
+// import fs from 'node:fs/promises';
+// import {v4 as uuid} from 'uuid';
 
-   async save(){
+// const moviesJSON = await fs.readFile('./src/database.json');
+// export const movies = JSON.parse(moviesJSON);
 
-       this.data.id = uuid();
-       this.data.rating = Number(this.data.rating);
+// console.log(movies);
+
+// export default class Movie {
+
+//     constructor(data){
+//         this.data = data;
+//     }
+
+//    async save(){
+
+//        this.data.id = uuid();
+//        this.data.rating = Number(this.data.rating);
        
-       movies.push(this.data);
+//        movies.push(this.data);
 
-       await fs.writeFile('./src/database.json', JSON.stringify(movies, null, 4)); 
+//        await fs.writeFile('./src/database.json', JSON.stringify(movies, null, 4)); 
 
-       return this.data;
-   }
-}
+//        return this.data;
+//    }
+// }
