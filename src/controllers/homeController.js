@@ -3,8 +3,8 @@ import movieService from "../services/movieService.js";
 
 const homeController = express.Router(); // без new .. така си е с главна буква 
 
-homeController.get('/', (req, res) =>{
-const movies = movieService.getAll();
+homeController.get('/', async (req, res) =>{
+const movies = await movieService.getAll();
 
     res.render('home', { movies }); // искам да ти подам обект мовис
 })

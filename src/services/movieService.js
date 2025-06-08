@@ -1,15 +1,16 @@
 
-import Movie, { movies } from "../models/Movie.js";
+import Movie from "../models/Movie.js";
     
 export default{
-    getAll( filter = {}) {
+    async getAll( filter = {}) {
 
-      let result = movies.slice(); // shallow copy to preserve original
+      let result =  await Movie.find({}).lean();
+      // console.log(result);
 
       if (filter.search) {
         const searchTerm = filter.search.toLowerCase();
-        result = result.filter(movie =>
-          movie.title.toLowerCase().includes(searchTerm)
+            result = result.filter(movie =>
+              movie.title.toLowerCase().includes(searchTerm)
         );
       }
     
@@ -28,12 +29,12 @@ export default{
       return result;
     },
     create(movieData){
-      const movie = new Movie(movieData);
-      //Return the created movie
-      return movie.save();
+        const movie = new Movie(movieData);
+        //Return the created movie
+        return movie.save();
     },
     getOne(movieId){
-      const movie =  movies.find(movie => movie.id === movieId)
-      return movie;
+        const movie =  movies.find(movie => movie.id === movieId)
+        return movie;
     }
 } 
