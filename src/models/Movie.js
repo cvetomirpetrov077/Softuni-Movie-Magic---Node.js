@@ -1,14 +1,43 @@
 import { model, Schema } from "mongoose";
 
+const maxYearAllowed =  new Date().getFullYear() + 5;
+
 const movieSchema = new Schema({
-    title: String,
-    category: String,
-    genre: String,
-    director: String,
-    year: Number,
-    imageUrl: String,
-    rating: Number,
-    description: String
+    title:{
+        type: String,
+        required : [ true, 'Title is requiered'],
+    },
+    category :{
+        type: String,
+        required :[ true, 'Category is requiered'],
+    },
+    genre:{
+        type: String,
+        required :[ true, 'Genre is requiered'],
+    },
+    director:{
+        type: String,
+        required :[ true, 'Director is requiered'],
+    },
+    year:{
+        type: Number,
+        required :[ true, 'Year is requiered'],
+        min: 1970,
+        max: [maxYearAllowed , `Year can't be larger then ${maxYearAllowed}`],
+    },
+    imageUrl:{
+        type: String,
+        required :[ true, 'Image is requiered'],
+    },
+    rating:{
+        type: Number,
+        required : [ true ,'Rating is requiered' ]
+    },
+   description:{
+        type: String,
+        required : [ true, 'Description is required'],
+        maxLength: [100, 'Description is too long!'],
+    },
 });
 
 const Movie = model('Movie', movieSchema);
