@@ -4,6 +4,7 @@ import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 import homeController from "./controllers/homeController.js";
 import movieController from "./controllers/movieController.js";
+import castController from "./controllers/castController.js";
 
 // init express instance
 const app = express();
@@ -51,11 +52,11 @@ app.set('view engine', 'hbs');
 app.set('views', './src/views')
 
 // Config routes
-
 app.use(homeController);
 app.use('/movies', movieController);
+app.use('/casts', castController);
 app.all('*url', (req, res) => {
-    res.render('404');
+    res.render('404'); 
 })
 
 

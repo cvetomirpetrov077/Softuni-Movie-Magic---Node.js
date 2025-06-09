@@ -1,5 +1,4 @@
 import { Schema, model, model } from "mongoose";
-import { type } from "os";
 
 const castSchema =  new Schema({
 
@@ -19,7 +18,7 @@ const castSchema =  new Schema({
     },
     imageUrl:{
         type: String,
-        required: true,
+        required: true, 
     },
 
 });
