@@ -36,7 +36,7 @@ movieController.get('/:movieId/details', async (req, res) => {
     const movie = await movieService.getOne(movieId);
     // console.log(movie);
 
-    res.render('details', { movie } );
+    res.render('movie/details', { movie } );
 });
 
 
