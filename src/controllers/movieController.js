@@ -1,6 +1,7 @@
 import express from "express";
 import movieService from "../services/movieService.js";
 import req from "express/lib/request.js";
+import castService from "../services/castService.js";
 
 const movieController = express.Router();
 
@@ -44,9 +45,14 @@ movieController.get('/:movieId/attach', async (req, res) => {
     
     const movieId = req.params.movieId;
 
+    //Get movie by id
     const movie = await movieService.getOne(movieId);
-    
-    res.render('movie/attach' , { movie } );
+
+    // Get all casts
+    const casts = await castService.getAll();
+
+    // Pass casts to template   
+    res.render('movie/attach' , { movie, casts } );
 })
 
 
