@@ -1,5 +1,6 @@
 import express from "express";
 import movieService from "../services/movieService.js";
+import req from "express/lib/request.js";
 
 const movieController = express.Router();
 
@@ -38,6 +39,15 @@ movieController.get('/:movieId/details', async (req, res) => {
 
     res.render('movie/details', { movie } );
 });
+
+movieController.get('/:movieId/attach', async (req, res) => {
+    
+    const movieId = req.params.movieId;
+
+    const movie = await movieService.getOne(movieId);
+    
+    res.render('movie/attach' , { movie } );
+})
 
 
 
