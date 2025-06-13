@@ -4,30 +4,25 @@ import Cast from "../models/Cast.js";
     
 export default{
     async getAll( filter = {}) {
+      let query = Movie.find();
 
-      let result =  await Movie.find({}).lean();
+      // let result =  await Movie.find({}).lean();
       // console.log(result);
 
       if (filter.search) {
-        const searchTerm = filter.search.toLowerCase();
-            result = result.filter(movie =>
-              movie.title.toLowerCase().includes(searchTerm)
-        );
+        query = query.find({title: {$regex: new RegExp(filter.search, 'i')}});
       }
     
       if (filter.genre) {
-        result = result.filter(movie =>
-          movie.genre.toLowerCase() === filter.genre.toLowerCase()
-        );
+        query = query.find({ genre: filter.genre.toLowerCase()})
       }
     
       if (filter.year) {
-        result = result.filter(movie =>
-          movie.year === Number(filter.year)
-        );
+        // query = query.find({ year: filter.year }); 
+        query = query.where('year').equals(filter.year);
       }
     
-      return result;
+      return query;
     },
     create(movieData){
         const movie = new Movie(movieData);
