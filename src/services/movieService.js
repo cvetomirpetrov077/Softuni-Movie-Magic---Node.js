@@ -36,5 +36,14 @@ export default{
     async getOne(movieId){
         const movie = await Movie.findById(movieId)
         return movie;
+    },
+    async attach(movieId, castId){
+    
+        // Option get movie, update movie, save movie
+        const movie =  await this.getOne(movieId);
+        movie.casts.push(castId);        // от Релацията в Movie.js
+        return movie.save();
+
+        
     }
 } 
