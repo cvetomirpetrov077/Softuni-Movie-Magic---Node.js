@@ -35,7 +35,7 @@ export default{
         return movie.save();
     },
     async getOne(movieId){
-        const movie = await Movie.findById(movieId)
+        const movie = await Movie.findById(movieId).populate('casts');
         return movie;
     },
     async attach(movieId, castId){
@@ -45,10 +45,9 @@ export default{
         movie.casts.push(castId);        // от Релацията в Movie.js
         return movie.save();
     },
-    async getCasts(movieId){
-       const movie = await this.getOne(movieId);
-       const casts = Cast.find({ _id: {$in: movie.casts}}); // mongo db way
-       return casts;
-
-    }
+    // async getCasts(movieId){
+    //    const movie = await this.getOne(movieId);
+    //    const casts = Cast.find({ _id: {$in: movie.casts}}); // mongo db way
+    //    return casts;
+    // }
 } 
