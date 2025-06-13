@@ -14,6 +14,7 @@ const movieSchema = new Schema({
     genre:{
         type: String,
         required :[ true, 'Genre is requiered'],
+        lowercase: true, // Not a validator but a sanitizier 
     },
     director:{
         type: String,
