@@ -38,7 +38,10 @@ movieController.get('/:movieId/details', async (req, res) => {
     const movie = await movieService.getOne(movieId);
     // console.log(movie);
 
-    res.render('movie/details', { movie } );
+    // Get movie csts
+    const casts = await movieService.getCasts(movieId)
+
+    res.render('movie/details', { movie , casts} );
 });
 
 movieController.get('/:movieId/attach', async (req, res) => {
