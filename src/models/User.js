@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import { type } from "os";
 
-const userSchema =  new Shema({
+const userSchema =  new Schema({
 
     email: {
         type: String,

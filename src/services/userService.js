@@ -1,7 +1,9 @@
-export default{
+import User from "../models/User.js"
 
+export default {
     register(userData){
+        return User.create(userData);
+    }      // ToDO: Register user
 
-        // ToDO: Register user
-    }
+
 }
