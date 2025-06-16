@@ -6,7 +6,7 @@ const userController =  Router();
 
 userController.get('/register', (req, res) => {
     
-    res.send('Register Page');
+    res.render('user/register');
 })
 
 
