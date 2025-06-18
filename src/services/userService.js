@@ -1,6 +1,9 @@
 import { error } from "console";
 import User from "../models/User.js"
 import bcrypt from 'bcrypt'
+import jsonwebtoken from "jsonwebtoken";
+
+const jwSecret = 'asdsadasd132jgjfjipmpppas*99(dsad'
 
 export default {
     register(userData){
@@ -9,7 +12,7 @@ export default {
      async login(email, password){
         // get user form database
 
-        const user = await User.find({email});
+        const user = await User.findOne({email});
 
         // check if use rxists in DB 
 
@@ -29,9 +32,14 @@ export default {
         }
 
         // if valid - generate token 
+        const payload = {
+                id: user.id,
+                email: user.email,
+        };
+        
+        const token  = jsonwebtoken.sign(payload, jwSecret, {expiresIn: '2h'});
 
         // return token 
-
-        return '';
+        return token;
     },
 }
