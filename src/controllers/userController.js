@@ -14,11 +14,10 @@ userController.get('/register', (req, res) => {
 userController.post('/register', async (req, res) => {
 
     // Get data form request
-    // const { email, password, rePassword }= req.body;
-    const userData = req.body;
+    const { email, password, rePassword } = req.body;
     
     // Register user 
-    await userService.register(userData);
+    await userService.register({ email, password, rePassword});
 
     // Redirect to login 
 
@@ -28,6 +27,21 @@ userController.post('/register', async (req, res) => {
 
 userController.get('/login', (req, res) => {
     res.render('user/login');
+})
+
+userController.post('/login', async (req, res) => {
+    
+    // Get login 
+    const {email, password} = req.body;
+
+    // call login service
+    const token  =  await userService.login(loginData);
+
+    // TODO: set auth cookie  result 
+
+    // redirect homepage
+    res.redirect('/')
+
 })
 
 export default userController;
