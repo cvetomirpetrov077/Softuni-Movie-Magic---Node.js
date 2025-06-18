@@ -11,13 +11,16 @@ const userSchema =  new Schema({
     password : {
         type: String, 
         required: true,
-    }
+    },
+    rePassword: {
+        type: String, 
+        required: true,
+    },
 })
 
 userSchema.pre('save', async function (){
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
-
 });
 
 const User = model('User', userSchema);

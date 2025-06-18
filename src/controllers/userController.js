@@ -26,4 +26,8 @@ userController.post('/register', async (req, res) => {
 })
 
 
+userController.get('/login', (req, res) => {
+    res.render('user/login');
+})
+
 export default userController;
