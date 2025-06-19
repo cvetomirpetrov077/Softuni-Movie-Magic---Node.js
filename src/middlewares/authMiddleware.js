@@ -14,7 +14,10 @@ export const auth = (req, res, next) => {
     try {
             const { id , email } =  jsonWebtoken.verify(token, jwSecret)
             
-            req.user = {id, email }; 
+            req.user = { id, email }; 
+            res.locals.user = { id, email };
+            // автоматично инжектира във view енджина хандълбарс.. директно може от темплейтетите да достъпваме
+            // времено слага данните по време на живота на рекуеста 
 
             next();
 
