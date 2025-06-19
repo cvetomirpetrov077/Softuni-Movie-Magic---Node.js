@@ -99,7 +99,18 @@ movieController.get('/:movieId/delete', async (req, res) => {
 })
 
 movieController.get('/:movieId/edit' , async (req, res) => {
-    res.render('movie/edit')
+
+    //get movie id
+    const movieId = req.params.movieId;
+
+    // get movie by id
+    const movie =  await movieService.getOne(movieId);
+
+    // pass movie dtata to template
+
+    // Check if owner
+
+    res.render('movie/edit', { movie })
 })
 
 export default movieController;
