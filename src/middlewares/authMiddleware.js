@@ -26,4 +26,15 @@ export const auth = (req, res, next) => {
         res.redirect('/users/login');
         // return new Error('Invalid token');
     }
+
 }
+
+export const isAuth = (req, res , next) =>{
+
+    if(!req.user){
+        return res.redirect('/users/login');
+    }
+        next();
+}
+
+

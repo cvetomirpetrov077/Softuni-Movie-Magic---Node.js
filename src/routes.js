@@ -9,7 +9,7 @@ import userController from "./controllers/userController.js";
 const routes = Router();
 
 routes.use(homeController);
-routes.use('/movies', movieController);
+routes.use('/movies',movieController);
 routes.use('/casts', castController);
 routes.use('/users', userController);
 routes.all('*url', (req, res) => {
