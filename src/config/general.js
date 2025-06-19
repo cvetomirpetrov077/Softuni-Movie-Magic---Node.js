@@ -1,1 +1,1 @@
-export const jwSecret = 'asdsadasd132jgjfjipmpppas*99(dsad';
+export const jwtSecret = 'asdsadasd132jgjfjipmpppas*99(dsad';

@@ -17,11 +17,13 @@ userController.post('/register', async (req, res) => {
     const { email, password, rePassword } = req.body;
     
     // Register user 
-    await userService.register({ email, password, rePassword});
+    const token = await userService.register({ email, password, rePassword});
+    
+    // Set auth cookie
+    res.cookie('auth', token);
 
     // Redirect to login 
-
-    res.redirect('/users/login');
+    res.redirect('/');
 })
 
 
@@ -38,8 +40,7 @@ userController.post('/login', async (req, res) => {
     const token  =  await userService.login(email, password);
     console.log(token)
 
-    // TODO: set auth cookie
-
+    // Set auth cookie
     res.cookie('auth', token);
 
     // redirect homepage

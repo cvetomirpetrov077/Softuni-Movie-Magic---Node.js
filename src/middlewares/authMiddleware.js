@@ -1,5 +1,5 @@
 import jsonWebtoken from 'jsonwebtoken'
-import { jwSecret } from '../config/general.js';
+import { jwtSecret } from '../config/general.js';
 
 
 export const auth = (req, res, next) => {
@@ -12,7 +12,7 @@ export const auth = (req, res, next) => {
 
 
     try {
-            const { id , email } =  jsonWebtoken.verify(token, jwSecret)
+            const { id , email } =  jsonWebtoken.verify(token, jwtSecret)
             
             req.user = { id, email }; 
             res.locals.user = { id, email };
