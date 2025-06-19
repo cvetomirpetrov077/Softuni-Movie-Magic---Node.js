@@ -124,7 +124,11 @@ movieController.get('/:movieId/edit' , async (req, res) => {
 
     console.log(categoryOptionsViewData)
 
-    res.render('movie/edit', { movie , categoryOptions: categoryOptionsViewData });
+    res.render('movie/edit', 
+        { movie , 
+          categoryOptions: categoryOptionsViewData,
+          pageTitle: 'Edit'
+         });
 })
 
 movieController.post('/:movieId/edit', async (req, res) => {
