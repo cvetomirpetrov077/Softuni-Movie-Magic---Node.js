@@ -43,7 +43,10 @@ export default{
         movie.casts.push(castId);        // от Релацията в Movie.js
         return movie.save();
     },
-    async delete(moviId){
-       return Movie.findByIdAndDelete(moviId);
+    delete(moviId){
+       return Movie.findByIdAndDelete(movieId);
+    },
+    update(movieId, movieData){
+        return Movie.findByIdAndUpdate(movieId, movieData);
     }
  } 

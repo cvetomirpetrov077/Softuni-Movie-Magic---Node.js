@@ -108,9 +108,43 @@ movieController.get('/:movieId/edit' , async (req, res) => {
 
     // pass movie dtata to template
 
+    // Get user ID
+
+    const userId = req.user?.id;
+
     // Check if owner
+
+    const isOwner = movie.owner?.equals(userId);
+
+    if(!isOwner){
+        return res.status(403).end();
+    }
 
     res.render('movie/edit', { movie })
 })
+
+movieController.post('/:movieId/edit', async (req, res) => {
+
+    // Get movie id
+    const movieId = req.params.movieId;
+
+    // get updated movie data
+    const movieData =  req.body;
+
+    // Get user id
+    // const userId = req.user?.id;
+    // TODO: Check if ownwe
+
+    // Update movie
+    await movieService.update(movieId, movieData)
+
+
+    // Redirect to movie details page
+
+    res.redirect(`/movies/${movieId}/details`);
+})
+
+
+
 
 export default movieController;
