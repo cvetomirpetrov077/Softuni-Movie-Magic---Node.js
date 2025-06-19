@@ -1,9 +1,8 @@
-import { error } from "console";
-import User from "../models/User.js"
 import bcrypt from 'bcrypt'
 import jsonwebtoken from "jsonwebtoken";
 
-const jwSecret = 'asdsadasd132jgjfjipmpppas*99(dsad'
+import User from "../models/User.js"
+import { jwSecret } from "../config/general.js";
 
 export default {
     register(userData){
