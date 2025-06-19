@@ -2,6 +2,7 @@ import express from "express";
 import movieService from "../services/movieService.js";
 import req from "express/lib/request.js";
 import castService from "../services/castService.js";
+import { getCategoryOptionsViewData } from '../utils/movieUtils.js'
 
 const movieController = express.Router();
 
@@ -98,6 +99,7 @@ movieController.get('/:movieId/delete', async (req, res) => {
     res.redirect('/')
 })
 
+
 movieController.get('/:movieId/edit' , async (req, res) => {
 
     //get movie id
@@ -107,20 +109,22 @@ movieController.get('/:movieId/edit' , async (req, res) => {
     const movie =  await movieService.getOne(movieId);
 
     // pass movie dtata to template
-
     // Get user ID
-
     const userId = req.user?.id;
 
     // Check if owner
-
     const isOwner = movie.owner?.equals(userId);
 
     if(!isOwner){
         return res.status(403).end();
     }
 
-    res.render('movie/edit', { movie })
+    // Prepare view data 
+    const categoryOptionsViewData = getCategoryOptionsViewData(movie.category);
+
+    console.log(categoryOptionsViewData)
+
+    res.render('movie/edit', { movie , categoryOptions: categoryOptionsViewData });
 })
 
 movieController.post('/:movieId/edit', async (req, res) => {
