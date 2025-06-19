@@ -8,8 +8,9 @@ homeController.get('/', async (req, res) =>{
 const movies = await movieService.getAll();
 
     // Get cookie token
-    const authToken = req.cookies['auth'];
-    console.log(authToken);
+    // const authToken = req.cookies['auth'];
+    // console.log(authToken);
+    console.log(req.user);
 
     // validate token
 
