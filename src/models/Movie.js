@@ -1,4 +1,5 @@
 import { model, Schema, Types } from "mongoose";
+import { type } from "os";
 
 const maxYearAllowed =  new Date().getFullYear() + 5;
 
@@ -45,7 +46,11 @@ const movieSchema = new Schema({
     casts:  [{
         type: Types.ObjectId,
         ref: 'Cast',
-    }]
+    }],
+    owner: {
+        type: Types.ObjectId,
+        reg: 'User',
+    }
 });
 
 const Movie = model('Movie', movieSchema);

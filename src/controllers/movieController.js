@@ -11,10 +11,14 @@ movieController.get('/create', (req, res) => { // от индекса от ап�
 
 movieController.post('/create', async (req, res) => {
     
+    // Get current movieId
+    const userId = req.user.id;
+
+
     const newMovie = req.body;
  
     // Save movie
-    await movieService.create(newMovie);
+    await movieService.create(newMovie, userId);
 
     // Redirect to home page
     res.redirect('/')
@@ -35,13 +39,19 @@ movieController.get('/:movieId/details', async (req, res) => {
     // get movie id from params
     const movieId = req.params.movieId;
 
-    // get movie with populated casts
+    // Get current user
+    const userId = req.user?.id;  // на текущия user  
+
+    // Get movie with populated casts
     const movie = await movieService.getOne(movieId);
+
+    // Verify if user is owner 
+    const isOwner =  movie.owner?.equals(userId);
 
     // Get movie csts
     // const casts = await movieService.getCasts(movieId)
 
-    res.render('movie/details', { movie } );
+    res.render('movie/details', { movie, isOwner } );
 });
 
 movieController.get('/:movieId/attach', async (req, res) => {

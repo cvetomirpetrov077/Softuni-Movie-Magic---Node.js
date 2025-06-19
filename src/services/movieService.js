@@ -24,9 +24,12 @@ export default{
     
       return query;
     },
-    create(movieData){
+    create(movieData, userId){
         const movie = new Movie(movieData);
-        //Return the created movie
+        // const movie = new Movie(...movieData, owner: userId);
+
+        movie.owner = userId;
+         //Return the created movie
         return movie.save();
     },
     async getOne(movieId){
