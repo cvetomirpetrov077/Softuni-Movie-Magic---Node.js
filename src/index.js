@@ -2,12 +2,9 @@
 import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
-import homeController from "./controllers/homeController.js";
-import movieController from "./controllers/movieController.js";
-import castController from "./controllers/castController.js";
-import userController from "./controllers/userController.js";
 import cookieParser from "cookie-parser";
 import { auth } from "./middlewares/authMiddleware.js";
+import routes from "./routes.js";
 
 // init express instance
 const app = express();
@@ -21,7 +18,7 @@ app.use(cookieParser());
 app.use(express.urlencoded());
 
 // Add middleware
-app.use(auth)
+ app.use(auth)
 
 // Add and config view engine
 app.engine('hbs', handlebars.engine({
@@ -60,13 +57,7 @@ app.set('view engine', 'hbs');
 app.set('views', './src/views')
 
 // Config routes
-app.use(homeController);
-app.use('/movies', movieController);
-app.use('/casts', castController);
-app.use('/users', userController);
-app.all('*url', (req, res) => {
-    res.render('404'); 
-})
+app.use(routes);
 
 
 app.listen(5000, () => console.log('Server is listening on http://localhost:5000...'));
