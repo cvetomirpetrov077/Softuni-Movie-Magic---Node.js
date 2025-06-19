@@ -44,7 +44,15 @@ userController.post('/login', async (req, res) => {
 
     // redirect homepage
     res.redirect('/')
+})
 
+userController.get('/logout', (req, res) => {
+    
+    res.clearCookie('auth');
+
+    // TODO: Invalidate token
+
+    res.redirect('/');
 })
 
 export default userController;
